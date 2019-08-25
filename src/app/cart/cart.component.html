@@ -1,0 +1,37 @@
+<h1>Cart Items</h1>
+
+<button (click)="onItems()" class="btn btn-success">Items</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price * item.quantity}}</td>
+        <td>
+          <a class="text-danger" href="javascript:;" (click)="onRemove(item)" >Remove</a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td style="text-align: right" colspan="5">Total Price</td>
+        <td>{{totalPrice}}</td>        
+        <td>
+          <button (click)="onPay()" class="btn btn-success">Checkout</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>

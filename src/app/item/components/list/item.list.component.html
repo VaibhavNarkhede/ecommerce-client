@@ -1,0 +1,46 @@
+<h1>Items</h1>
+<div class="row">
+    <div class="col-md-12">
+        <button style="margin-left: 10px"  (click)="onLogout()" class="btn btn-success float-right">Logout</button>
+        <button (click)="onCart()" class="btn btn-success float-right">Cart</button>
+    </div>
+  </div>
+  
+<div class="row">
+    <div class="col-md-3">
+        <h3>Categories</h3>
+        <ul class="list-group">
+            <li 
+                style="cursor: pointer"
+                [class.active]="category.id == selectedCategory.id"
+                (click)="onSelectedCategory(category)"
+                class="list-group-item" 
+                *ngFor="let category of categories">{{category.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <h3>Items</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Action</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.price}}</td>
+              <td>
+                <a href="javascript:;" (click)="onAddToCart(item)" >Add To Cart</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
